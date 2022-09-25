@@ -1,12 +1,12 @@
 {{
     config(
-        materialized='view'
+        materialized='table'
     )  
 }}
 
 with source as (
 
-    select * from {{ source("TPC-H", "CUSTOMER") }}
+    select * from {{ source("TPCH_SF1", "PARTSUPP") }}
 ),
 
 staging as (

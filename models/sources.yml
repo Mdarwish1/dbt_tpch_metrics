@@ -2,9 +2,10 @@ version: 2
 
 #define sources from the TPC-H data is taken and details about the source tables
 sources:
-  - name: TPC-H
+  - name: TPCH_SF1
+    database: SNOWFLAKE_SAMPLE_DATA
     tables:
-      - name: Orders
+      - name: ORDERS
         columns: 
           - name: O_ORDERKEY
           - name: O_CUSTKEY
@@ -16,7 +17,7 @@ sources:
           - name: O_SHIP-PRIORITY
           - name: O_COMMENT
       
-      - name: LineItem
+      - name: LINEITEM
         columns: 
           - name: L_ORDERKEY
           - name: L_PARTKEY
@@ -50,6 +51,7 @@ sources:
           - name: PS_COMMENT
 
       - name: CUSTOMER
+        database: "TPC-H"
         columns: 
           - name: C_CUST_KEY
           - name: C_NAME

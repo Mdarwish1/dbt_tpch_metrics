@@ -1,18 +1,18 @@
 {{
     config(
-        materialized='view'
+        materialized='table'
     )  
 }}
 
 with source as (
 
-    select * from {{ source("TPC-H", "CUSTOMER") }}
+    select * from {{ source("TPCH_SF1", "CUSTOMER") }}
 ),
 
 staging as (
 
     select 
-        C_CUST_KEY as customer_key,
+        C_CUSTKEY as customer_key,
         C_NAME as customer_name,
         C_ADDRESS as customer_address,
         C_NATIONKEY as customer_nation_key,

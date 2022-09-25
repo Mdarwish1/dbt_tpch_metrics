@@ -33,6 +33,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   tpch_metrics:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+  
+
+quoting:
+  database: true
+  schema: true
+  identifier: true

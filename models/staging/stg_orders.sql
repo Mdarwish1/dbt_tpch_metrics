@@ -1,12 +1,12 @@
 {{
     config(
-        materialized='view'
+        materialized='table'
     )  
 }}
 
 with source as (
 
-    select * from {{ source("TPC-H", "Orders") }}
+    select * from {{ source("TPCH_SF1", "ORDERS") }}
 ),
 
 staging as (
@@ -17,9 +17,9 @@ staging as (
         O_ORDERSTATUS as order_status,
         O_TOTALPRICE as order_total_price,
         O_ORDERDATE as order_date,
-        "O_ORDER-PRIORITY" as order_priority,
+        O_ORDERPRIORITY as order_priority,
         O_CLERK as order_clerk,
-        "O_SHIP-PRIORITY" as order_ship_priority,
+        O_SHIPPRIORITY as order_ship_priority,
         O_COMMENT as order_comment
     from source
 )
