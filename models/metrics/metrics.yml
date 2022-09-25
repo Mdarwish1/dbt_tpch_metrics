@@ -1,0 +1,13 @@
+version: 2
+
+
+metrics:
+- name: orders_price_by_customer
+  label: Customer Orders
+  model: ref('fct_customer_order')
+  description: Total price of orders for customers
+  type: sum
+  sql: order_total_price
+  timestamp: order_date
+  time_grains: [day, week, month]
+  dimensions: [customer_name]
